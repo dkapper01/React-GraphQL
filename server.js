@@ -1,14 +1,14 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+require("dotenv").config({ path: "variables.env" });
 const Recipe = require("./models/Recipe");
 const User = require("./models/User");
 
-
-require("dotenv").config({ path: "variables.env" });
-
 // Bring in GraphQL-Express middleware
-const { graphiqlExpress, graphqlExpress } = require("apollo-server-express");
+const { graphiqlExpress, graphqlExpress } = require
+("apollo-server-express");
+
 const { makeExecutableSchema } = require("graphql-tools");
 
 const { typeDefs } = require("./schema");
@@ -30,7 +30,7 @@ mongoose
 const app = express();
 
 // create GraphiQL application
-app.use("/graphiql", graphiqlExpress({ endpointURL: "/graphiql" }));
+app.use("/graphiql", graphiqlExpress({ endpointURL: "/graphql" }));
 
 // Connect schema with GraphQL
 app.use(
